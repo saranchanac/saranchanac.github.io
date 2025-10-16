@@ -3,13 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamster home</title>
+    <title>Hamster Home Dashboard</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <h1>Hamster Home</h1>
-    <i class="green">Test "i"</i>
-    <p id="red">Test "p"</p>
+    <header class="app-header">
+        <div class="container">
+            <h1>Hamster Home</h1>
+            <div class="now" id="now"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="grid">
+            <article class="card">
+                <div class="card-header">
+                    <h2>Ambient Temperature</h2>
+                </div>
+                <div class="card-body">
+                    <div class="metric">
+                        <span class="value" id="tempC">--.-</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="bar">
+                        <div class="bar-fill" id="tempBar" style="width:0%"></div>
+                    </div>
+                    <div class="meta-row">
+                        <div>Comfort: <span id="tempComfort">-</span></div>
+                        <div>Range: 18–28°C</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h2>Water Intake Today</h2>
+                </div>
+                <div class="card-body">
+                    <div class="metric">
+                        <span class="value" id="waterCc">---</span>
+                        <span class="unit">cc</span>
+                    </div>
+                    <div class="bar">
+                        <div class="bar-fill alt" id="waterBar" style="width:0%"></div>
+                    </div>
+                    <div class="meta-row">
+                        <div>Target: <span id="waterTarget">10–20 cc</span></div>
+                        <div>Since midnight</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <h2>Heater</h2>
+                </div>
+                <div class="card-body two-col">
+                    <div class="metric">
+                        <span class="value" id="heaterTemp">--.-</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="status">
+                        <span id="heaterStatus" class="pill">--</span>
+                    </div>
+                </div>
+                <div class="meta-row">
+                    <div>Setpoint: <span id="heaterSetpoint">--.- °C</span></div>
+                    <div>Mode: <span id="heaterMode">Auto</span></div>
+                </div>
+            </article>
+
+            <article class="card wide">
+                <div class="card-header">
+                    <h2>Running</h2>
+                </div>
+                <div class="card-body run">
+                    <div class="run-item">
+                        <div class="label">Today Time</div>
+                        <div class="metric small">
+                            <span class="value" id="runTime">--:--:--</span>
+                        </div>
+                    </div>
+                    <div class="run-item">
+                        <div class="label">Today Distance</div>
+                        <div class="metric small">
+                            <span class="value" id="runDistance">--</span>
+                            <span class="unit" id="runDistanceUnit">m</span>
+                        </div>
+                    </div>
+                    <div class="run-item">
+                        <div class="label">Speed</div>
+                        <div class="metric small">
+                            <span class="value" id="runSpeed">-.-</span>
+                            <span class="unit" id="runSpeedUnit">m/s</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div>Hamster Home Dashboard</div>
+            <div id="lastUpdate">Last update: --</div>
+        </div>
+    </footer>
+
     <script src="./assets/js/main.js"></script>
 </body>
 </html>
