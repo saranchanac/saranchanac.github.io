@@ -7,7 +7,6 @@
     <title>Hamster Home Dashboard</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
-    <link ref="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -39,22 +38,37 @@
                 </div>
             </article>
 
-            <article class="card">
+            <article class="card wide">
                 <div class="card-header">
-                    <h2>Water Intake Today</h2>
+                    <h2>Activity Summary</h2>
                 </div>
-                <div class="card-body">
-                    <div class="metric">
-                        <span class="value" id="waterCc">---</span>
-                        <span class="unit">cc</span>
+                <div class="card-body two-col">
+                    <div class="metric small">
+                        <div class="label">Active Time Today</div>
+                        <span class="value" id="activeTime">--:--:--</span>
                     </div>
-                    <div class="bar">
-                        <div class="bar-fill alt" id="waterBar" style="width:0%"></div>
+                    <div class="metric small">
+                        <div class="label">Sleeping Time Today</div>
+                        <span class="value" id="sleepTime">--:--:--</span>
                     </div>
                     <div class="meta-row">
-                        <div>Target: <span id="waterTarget">10–20 cc</span></div>
-                        <div>Since midnight</div>
+                        <div>Current State: <span id="currentState" class="pill">--</span></div>
                     </div>
+                </div>
+
+            </article>
+
+            <article class="card wide">
+                <div class="card-header">
+                    <h2>Drinking Timeline (Today)</h2>
+                </div>
+                <div class="card-body">
+                    <div class="metric small">
+                        <span class="label">Total Today</span>
+                        <span class="value" id="drinkTotal">0</span>
+                        <span class="unit">cc</span>
+                    </div>
+                    <canvas id="drinkChart" width="900" height="260"></canvas>
                 </div>
             </article>
 
@@ -68,13 +82,26 @@
                         <span class="unit">°C</span>
                     </div>
                     <div class="status">
-                        <span id="heaterStatus" class="pill">--</span>
+                        <button id="heaterStatus" class="pill" type="button">--</button>
                     </div>
                 </div>
-                <div class="meta-row">
-                    <div>Setpoint: <span id="heaterSetpoint">--.- °C</span></div>
-                    <div>Mode: <span id="heaterMode">Auto</span></div>
+                <div class="card-body">
+                    <div id="heaterControls" style="display:flex;flex-direction:column;gap:12px;width:100%">
+                        <div id="heaterModeGroup" class="status" style="gap:12px">
+                            <button id="heaterModeAutoBtn" class="pill" type="button">Auto</button>
+                            <button id="heaterModeManualBtn" class="pill" type="button">Manual</button>
+                        </div>
+                        <label style="display:flex;align-items:center;gap:8px;width:100%">
+                            <span>Setpoint</span>
+                            <input id="heaterSetpointInput" type="number" step="0.1" min="10" max="40"
+                                style="max-width:140px;width:100%" />
+                            <span>°C</span>
+                        </label>
+                    </div>
                 </div>
+
+                </div>
+
             </article>
 
             <article class="card wide">
@@ -103,13 +130,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-body">
+                    <canvas id="runChart" width="900" height="260"></canvas>
+                </div>
             </article>
         </section>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <div>Hamster Home Dashboard</div>
+            <div>&copy; 2025 Hamster Home Dashboard. All rights reserved.</div>
             <div id="lastUpdate">Last update: --</div>
         </div>
     </footer>
